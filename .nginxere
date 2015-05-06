@@ -1,0 +1,24 @@
+master_process off;
+daemon off;
+
+events { 
+}
+
+http {
+  types {
+    text/html html;
+    application/javascript js;
+    text/css css;
+  }
+
+  access_log /dev/stdout;
+  error_log /dev/stdout;
+  
+  index index.html;
+  
+  server{
+    location / {
+      root {{=pwd}}/test ;
+    }
+  }
+}
