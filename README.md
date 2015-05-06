@@ -6,7 +6,7 @@ prototyping.
 Paste the following to your `.bashrc` or `.zshrc`.
 
 ```shell
-alias nginxere="(which nginx > /dev/null 2>&1) && export nginxconf=$(mktemp /tmp/nginx.conf.XXXXX) && ((test -f .nginxere && (cat .nginxere|sed 's~{{=pwd}}~'$(pwd)'~g')) || (echo \"master_process off;daemon off;events{}http{types{text/html html;application/javascript js;text/css css;}access_log /dev/stdout;index index.html;server{location /{root \$(pwd);}}}\")) > \$nginxconf && echo \"Serving on http://localhost:8000\nPress CTRL-C to stop.\" && nginx -c \$nginxconf && rm \$nginxconf && echo \"\nDone.\""
+alias nginxere="(which nginx > /dev/null 2>&1) && export nginxconf=$(mktemp /tmp/nginx.conf.XXXXX) && ((test -f .nginxere && (cat .nginxere|sed 's~{{=pwd}}~'\$(pwd)'~g')) || (echo \"master_process off;daemon off;events{}http{types{text/html html;application/javascript js;text/css css;}access_log /dev/stdout;index index.html;server{location /{root \$(pwd);}}}\")) > \$nginxconf && echo \"Serving on http://localhost:8000\nPress CTRL-C to stop.\" && nginx -c \$nginxconf && rm \$nginxconf && echo \"\nDone.\""
 ```
 
 Restart your terminal (or re-source your profile) and type `nginxere`.
